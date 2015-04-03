@@ -29,5 +29,25 @@ class DefaultController extends ODMController {
                                  "todos"=>$todos,
                                  "lastNews"=>$lastNews ));      
   }
+
+  public function actionOpen() 
+  {
+    $this->render("open",array(  ));      
+  }
+
+  public function actionData() 
+  {
+    $this->render("data",array(  ));      
+  }
+
+  public function actionSmart() 
+  {
+    $this->render("smart",array(  ));      
+  }
+
+  public function actionCity() 
+  {
+    $this->render("city",array(  ));      
+  }
    
 }

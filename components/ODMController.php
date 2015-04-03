@@ -7,7 +7,7 @@ class ODMController extends Controller
 {
   public $version = "V.0.01";
   
-  public $title = "pen Data Meteo";
+  public $title = "Open Data Meteo";
   public $subTitle = "Open Data Meteo";
   public $pageTitle = "Open Data Meteo ";
   
@@ -33,31 +33,22 @@ class ODMController extends Controller
 
   public $notifications = array();
   public $sidebar1 = array(
-    array('label' => "Events ", "key"=>"events","iconClass"=>"fa fa-calendar","href"=> "/learn/event" ),
-    array('label' => "Give us a Smile ", "key"=>"smile","iconClass"=>"fa fa-smile-o","href"=> "/learn/smile" ),
+    array('label' => "OPEN ", "key"=>"open","iconClass"=>"fa fa-share-alt","href"=> "/opendatameteo/default/open" ),
+    array('label' => "DATA ", "key"=>"open","iconClass"=>"fa fa-database","href"=> "/opendatameteo/default/data" ),
+    array('label' => "SMART ", "key"=>"open","iconClass"=>"fa fa-lightbulb-o","href"=> "/opendatameteo/default/smart" ),
+    array('label' => "CITY ", "key"=>"open","iconClass"=>"fa fa-building","href"=> "/opendatameteo/default/city" ),
+    array('label' => "Give us a Smile ", "key"=>"smile", "class"=>"new-note", "iconClass"=>"fa fa-smile-o" ),
     
     );
   
   public $toolbarMenuAdd = array(
      
-    array('label' => "Event", "key"=>"event",
-        "children"=> array(
-          "newEvent" => array( "label"=>"Add new event","key"=>"newEvent", "class"=>"new-event", "href"=>"#newEvent", "iconStack"=>array("fa fa-calendar-o fa-stack-1x fa-lg","fa fa-plus fa-stack-1x stack-right-bottom text-danger")),
-          "showCalendar" => array( "label"=>"Show calendar","class"=>"show-calendar","key"=>"showCalendar", "href"=>"#showCalendar", "iconStack"=>array("fa fa-calendar-o fa-stack-1x fa-lg","fa fa-share fa-stack-1x stack-right-bottom text-danger")),
-        )
-    ),
     array('label' => "Note", "key"=>"note",
         "children"=> array(
           "newNote" => array( "label"=>"Add new note","key"=>"newNote", "class"=>"new-note", "href"=>"#newNote", "iconStack"=>array("fa fa-list fa-stack-1x fa-lg","fa fa-plus fa-stack-1x stack-right-bottom text-danger")),
           "readNote" => array( "label"=>"Read All notes","class"=>"read-all-notes","key"=>"readNote", "href"=>"#readNote", "iconStack"=>array("fa fa-list fa-stack-1x fa-lg","fa fa-share fa-stack-1x stack-right-bottom text-danger")),
         )
-    ),
-    array('label' => "GED", "key"=>"ged",
-        "children"=> array( 
-          "newFiles" => array( "label"=>"Add new file","key"=>"newFiles","class"=>"new-file", "href"=>"#genericGED", "iconStack"=>array("fa fa-file fa-stack-1x fa-lg","fa fa-plus fa-stack-1x stack-right-bottom text-danger")),
-          "fileList" => array( "label"=>"File List","key"=>"fileList", "class"=>"readFiles","href"=>"#genericGED", "iconStack"=>array("fa fa-file fa-stack-1x fa-lg","fa fa-bars fa-stack-1x stack-right-bottom text-danger")),
-        )
-    ),
+    )
   );
   public $subviews = array(
     
@@ -68,7 +59,11 @@ public $toolbarMenuMaps = array(
 
 public $pages = array(
   "default" => array(
-    "index"=>array("href"=>"/ph/learn/default/index",'title' => "Ville 2.2.main",'title' => "Open Data Météo"),
+    "index"=>array("href"=>"/ph/opendatameteo/default/index",'title' => "Ville 2.2.main",'title' => "Open Data Météo"),
+    "open"=>array("href"=>"/ph/opendatameteo/default/open"),
+    "data"=>array("href"=>"/ph/opendatameteo/default/data"),
+    "smart"=>array("href"=>"/ph/opendatameteo/default/smart"),
+    "city"=>array("href"=>"/ph/opendatameteo/default/city")
   ),
   
 );
