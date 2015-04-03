@@ -5,11 +5,12 @@
 		<div class="panel-body no-padding text-extra-large ">
 			<ul class="list-group ">
 				<li class="list-group-item panel-dark">Citizens</li>
-				<li class="list-group-item panel-dark">Your mind</li>
-				<li class="list-group-item panel-dark">Your code</li>
-				<li class="list-group-item panel-dark">Your data</li>
-				<li class="list-group-item panel-dark">Your city</li>
-				<li class="list-group-item panel-dark">Your territory</li>
+				<li class="list-group-item panel-dark">Minds</li>
+				<li class="list-group-item panel-dark">Source</li>
+				<li class="list-group-item panel-dark">Data</li>
+				<li class="list-group-item panel-dark">Hardware</li>
+				<li class="list-group-item panel-dark">City</li>
+				<li class="list-group-item panel-dark">Territory</li>
 			</ul>
 		</div>
 	</div>

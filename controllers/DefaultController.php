@@ -49,5 +49,10 @@ class DefaultController extends OpenDataController {
   {
     $this->render("city",array(  ));      
   }
+
+  public function actionFablab() 
+  {
+    $this->render("fablab",array(  ));      
+  }
    
 }
