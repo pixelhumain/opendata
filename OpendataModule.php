@@ -7,7 +7,7 @@
  *
 */
 
-class OpendatameteoModule extends CWebModule
+class OpendataModule extends CWebModule
 {
 	public function init()
 	{

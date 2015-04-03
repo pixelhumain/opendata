@@ -2,7 +2,7 @@
 /**
  * Exception for Communecter business Error
  */
-class ODMException extends Exception
+class OpenDataException extends Exception
 {
 
   public function __construct($message = null, $code = 0) {

@@ -93,7 +93,52 @@ $cs->registerScriptFile(Yii::app()->theme->baseUrl. '/assets//plugins/nvd3/nv.d3
       </div>
     </div>
   </div>
+
+<div class="col-md-6 col-lg-3 col-sm-6">
+    <div class="panel panel-default panel-white core-box">
+      <div class="panel-tools">
+        <a href="#" class="btn btn-xs btn-link panel-close">
+          <i class="fa fa-times"></i>
+        </a>
+      </div>
+      <div class="panel-body no-padding">
+        <div class="padding-20 text-center core-icon">
+          <i class="fa fa-cloud icon-big text-dark-azure"></i>
+        </div>
+        <div class="padding-20 core-content">
+          <h3 class="title block no-margin text-dark-azure">METEO</h3>
+          <span class="subtitle">
+            Collective Intelligence 
+            <br>Gives another meaning to everything.
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 col-lg-3 col-sm-6">
+    <div class="panel panel-default panel-white core-box">
+      <div class="panel-tools">
+        <a href="#" class="btn btn-xs btn-link panel-close">
+          <i class="fa fa-times"></i>
+        </a>
+      </div>
+      <div class="panel-body no-padding">
+        <div class="padding-20 text-center core-icon">
+          <i class="fa fa-car icon-big text-dark-green"></i>
+        </div>
+        <div class="padding-20 core-content">
+          <h3 class="title block no-margin text-dark-green">TRANPORT</h3>
+          <span class="subtitle">
+            Where the commons come to life and solutions are used.
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
+
+
 
 <div class="row">
   <div class="col-sm-12">
@@ -257,6 +302,37 @@ $cs->registerScriptFile(Yii::app()->theme->baseUrl. '/assets//plugins/nvd3/nv.d3
   </div>
  
 </div>
+
+<div class="row">
+  
+  <div class="panel panel-dark col-sm-12 ">
+    <div class="panel-heading border-light">
+      <span class="text-extra-small text-blue"></span><span class="text-large text-white">OPEN DATA HACKATHON EVENTS</span>
+    </div>
+    <div class="panel-body no-padding text-extra-large ">
+      <ul class="list-group ">
+        <li class="list-group-item panel-dark">Get Toegther to build more open Data </li>
+        <li class="list-group-item panel-dark">
+          Intégré les source open data meteo france 
+          <hr>
+          <a href="https://www.data.gouv.fr/fr/organizations/meteo-france/" target="_blank">meteo-france</a>
+          <hr>
+          <a href="https://forum.openmeteodata.org/index.php?topic=21.0" target="_blank">Discussion</a>
+        </li>
+        <li class="list-group-item panel-dark">
+          Transport 
+          <br>
+          Invité les differents acteur public a ouvrir leur donnée sur les reseau de bus
+          <br>
+          pour creer une interface open data
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+</div>
+
 <!-- end: PAGE CONTENT-->
 <script type="text/javascript">
 var date = new Date();

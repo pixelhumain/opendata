@@ -3,20 +3,20 @@
  * Controller is the customized base controller class.
  * All controller classes for this application should extend from this base class.
  */
-class ODMController extends Controller
+class OpenDataController extends Controller
 {
   public $version = "V.0.01";
   
-  public $title = "Open Data Meteo";
-  public $subTitle = "Open Data Meteo";
-  public $pageTitle = "Open Data Meteo ";
+  public $title = "Open Data ";
+  public $subTitle = "Open Data ";
+  public $pageTitle = "Open Data  ";
   
   public static $moduleKey = "learn";
   
   public $keywords = "page keywords for this module";
   public $description = "page description for this module";
 
-  public $projectName = "pen Data Meteo module";
+  public $projectName = "pen Data module";
   public $projectImage = "/images/CTK.png";
   public $projectImageL = "/images/logo.png";
   
@@ -90,8 +90,7 @@ function initPage()
     $this->pageTitle = Yii::t("teeo",((isset($page["pageTitle"])) ? $page["pageTitle"] : $this->pageTitle),null,Yii::app()->controller->module->id);
     $this->projectName = Yii::t("teeo" ,$this->projectName ,null ,Yii::app()->controller->module->id);
 
-    $this->notifications = ActivityStream::getNotifications(array("notify.id"=>Yii::app()->session["userId"]));
-
+   
     CornerDev::addWorkLog("teeo","you@dev.com",Yii::app()->controller->id,Yii::app()->controller->action->id);
   }
 

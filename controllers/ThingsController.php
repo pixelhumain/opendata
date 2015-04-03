@@ -6,7 +6,7 @@
  * Date: 7/23/12
  * Time: 12:25 AM
  */
-class ThingsController extends CommunecterController {
+class ThingsController extends OpenDataController {
   
 
 	/**

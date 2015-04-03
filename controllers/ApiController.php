@@ -7,7 +7,7 @@
  * @author: Tibor Katelbach <tibor@pixelhumain.com>
  * Date: 14/03/2014
  */
-class ApiController extends ODMController {
+class ApiController extends OpenDataController {
 
     const moduleTitle = "TEEO";
 

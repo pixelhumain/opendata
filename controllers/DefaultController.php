@@ -7,7 +7,7 @@
  * @author: Tibor Katelbach <tibor@pixelhumain.com>
  * Date: 14/03/2014
  */
-class DefaultController extends ODMController {
+class DefaultController extends OpenDataController {
 
   protected function beforeAction($action)
 	{
