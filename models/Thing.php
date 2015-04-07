@@ -10,24 +10,24 @@ class Thing {
 	 */
 	public static function save($param){
         $new = array(
-			"temp"=>$param["temp"],
-			"hum"=>$param["hum"],
-			"light"=>$param["light"],
-			"bat"=>$param["bat"],
-			"panel"=>$param["panel"],
-			"co"=>$param["co"],
-			"no2"=>$param["no2"],
-			"noise"=>$param["noise"],
-			"nets"=>$param["nets"],
-			"timestamp"=>$param["timestamp"],
+	   "temp"=>$param["temp"],
+	   "hum"=>$param["hum"],
+	   "light"=>$param["light"],
+	   "bat"=>$param["bat"],
+	   "panel"=>$param["panel"],
+	   "co"=>$param["co"],
+	   "no2"=>$param["no2"],
+	   "noise"=>$param["noise"],
+	   "nets"=>$param["nets"],
+	   "timestamp"=>$param["timestamp"],
 
-			"type" => "smartCitizen",
-			"boardId" => $param["macId"],
-			"userId" => ""
-			);
-		//Insert the organization
-	    PHDB::insert( self::collection, $new);
-	    return array("result"=>true);
+	   "type" => "smartCitizen",
+	   "boardId" => $param["macId"],
+	   "userId" => ""
+	   );
+	  //Insert the organization
+		 PHDB::insert( self::collection, $new);
+		 return array("result"=>true);
 
     }
 }

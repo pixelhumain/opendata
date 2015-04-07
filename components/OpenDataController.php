@@ -63,7 +63,8 @@ public $pages = array(
     "open"=>array("href"=>"/ph/opendatameteo/default/open"),
     "data"=>array("href"=>"/ph/opendatameteo/default/data"),
     "smart"=>array("href"=>"/ph/opendatameteo/default/smart"),
-    "city"=>array("href"=>"/ph/opendatameteo/default/city")
+    "city"=>array("href"=>"/ph/opendatameteo/default/city"),
+	"get"=>array("href"=>"/ph/opendatameteo/default/get")
   ),
   
 );
@@ -91,7 +92,6 @@ function initPage()
     $this->projectName = Yii::t("teeo" ,$this->projectName ,null ,Yii::app()->controller->module->id);
 
    
-    CornerDev::addWorkLog("teeo","you@dev.com",Yii::app()->controller->id,Yii::app()->controller->action->id);
   }
 
 }
