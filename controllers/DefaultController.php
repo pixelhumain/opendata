@@ -106,5 +106,10 @@ class DefaultController extends OpenDataController {
 	   $res = PHDB::find(Thing::collection,array(),array("temp"));
 	   echo Rest::json($res);
 	}
+
+  public function actionFablab() 
+  {
+    $this->render("fablab",array(  ));      
+  }
    
 }

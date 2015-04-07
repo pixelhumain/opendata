@@ -33,12 +33,12 @@ class OpenDataController extends Controller
 
   public $notifications = array();
   public $sidebar1 = array(
-    array('label' => "OPEN ", "key"=>"open","iconClass"=>"fa fa-share-alt","href"=> "/opendatameteo/default/open" ),
-    array('label' => "DATA ", "key"=>"open","iconClass"=>"fa fa-database","href"=> "/opendatameteo/default/data" ),
-    array('label' => "SMART ", "key"=>"open","iconClass"=>"fa fa-lightbulb-o","href"=> "/opendatameteo/default/smart" ),
-    array('label' => "CITY ", "key"=>"open","iconClass"=>"fa fa-building","href"=> "/opendatameteo/default/city" ),
-    array('label' => "Give us a Smile ", "key"=>"smile", "class"=>"new-note", "iconClass"=>"fa fa-smile-o" ),
-    
+    array('label' => "OPEN ", "key"=>"open","iconClass"=>"fa fa-share-alt","href"=> "/opendata/default/open" ),
+    array('label' => "DATA ", "key"=>"open","iconClass"=>"fa fa-database","href"=> "/opendata/default/data" ),
+    array('label' => "SMART ", "key"=>"open","iconClass"=>"fa fa-lightbulb-o","href"=> "/opendata/default/smart" ),
+    array('label' => "CITY ", "key"=>"open","iconClass"=>"fa fa-building","href"=> "/opendata/default/city" ),
+    array('label' => "FABLAB ", "key"=>"open","iconClass"=>"fa fa-cube","href"=> "/opendata/default/fablab" ),
+    array('label' => "Give us a Smile ", "key"=>"smile", "class"=>"new-note", "iconClass"=>"fa fa-smile-o" )
     );
   
   public $toolbarMenuAdd = array(
@@ -65,6 +65,7 @@ public $pages = array(
     "smart"=>array("href"=>"/ph/opendatameteo/default/smart"),
     "city"=>array("href"=>"/ph/opendatameteo/default/city"),
 	"get"=>array("href"=>"/ph/opendatameteo/default/get")
+    "fablab"=>array("href"=>"/ph/opendata/default/fablab")
   ),
   
 );
@@ -86,12 +87,16 @@ function initPage()
       array_push($this->breadcrumb, array("lbl"=>$this->pages[Yii::app()->controller->id][Yii::app()->controller->action->id]["title"]));
 
     $page = $this->pages[Yii::app()->controller->id][Yii::app()->controller->action->id];
-    $this->title = Yii::t("teeo",((isset($page["title"])) ? $page["title"] : $this->title),null,Yii::app()->controller->module->id);
-    $this->subTitle = Yii::t("teeo",((isset($page["subTitle"])) ? $page["subTitle"] : $this->subTitle),null,Yii::app()->controller->module->id);
-    $this->pageTitle = Yii::t("teeo",((isset($page["pageTitle"])) ? $page["pageTitle"] : $this->pageTitle),null,Yii::app()->controller->module->id);
-    $this->projectName = Yii::t("teeo" ,$this->projectName ,null ,Yii::app()->controller->module->id);
+    $this->title = Yii::t("opendata",((isset($page["title"])) ? $page["title"] : $this->title),null,Yii::app()->controller->module->id);
+    $this->subTitle = Yii::t("opendata",((isset($page["subTitle"])) ? $page["subTitle"] : $this->subTitle),null,Yii::app()->controller->module->id);
+    $this->pageTitle = Yii::t("opendata",((isset($page["pageTitle"])) ? $page["pageTitle"] : $this->pageTitle),null,Yii::app()->controller->module->id);
+    $this->projectName = Yii::t("opendata" ,$this->projectName ,null ,Yii::app()->controller->module->id);
 
    
+<<<<<<< HEAD
+=======
+    CornerDev::addWorkLog("opendata","you@dev.com",Yii::app()->controller->id,Yii::app()->controller->action->id);
+>>>>>>> d4145b1559cfa219c6c0d36f47b0de8918784551
   }
 
 }
