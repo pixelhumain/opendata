@@ -54,15 +54,6 @@ class DefaultController extends OpenDataController {
   
 	public function actionPush() 
 	{
-		/*parse_str(file_get_contents("php://input"),$post_vars);
-		$data = $post_vars['data'];
-		$json = str_replace('{', '{"', $data);
-		$json = str_replace(',', '","', $json);
-		$json = str_replace('}', '"}', $json);
-		
-		$ptn = '/' . preg_quote(":",'/') . '/';
-		$jsonOk = preg_replace($ptn, '":"', $json, 10);*/
-		
 		
 		if (!function_exists('getallheaders')) {
 		  function getallheaders() {
@@ -90,21 +81,136 @@ class DefaultController extends OpenDataController {
 		$res["param"] = $param;
 		$res["json"] = $json;
 		//echo print_r($param, true);//Rest::json($param);
-		
-		Yii::log(print_r($heads, true), "error");
-		
+		echo "ok";
 	}
 
 	public function actionGet() 
 	{
-	   $res = PHDB::find(Thing::collection);
-	   echo Rest::json($res);
+	
+		$url = Yii::app()->request->url;
+		$segments = explode('/', $url);
+		$cp = $segments[count($segments)-1];
+		
+		$BRD = array( 
+					"97421" => "00:06:66:21:89:e9",
+					"97450" => "00:06:66:21:89:01"
+				);
+				
+		$brdFound = $BRD[$cp];
+		
+		if($brdFound != null) {
+			$res = PHDB::find(Thing::collection, array('boardId' => $brdFound));
+			echo Rest::json($res);
+		}
+		else {
+			echo "error";
+		}
+		
+	   
+	   
+	   
 	}
 
 	public function actionGetTemp() 
 	{
-	   $res = PHDB::find(Thing::collection,array(),array("temp"));
-	   echo Rest::json($res);
+	
+	
+	
+		$url = Yii::app()->request->url;
+		$segments = explode('/', $url);
+		$cp = $segments[count($segments)-1];
+		
+		
+		$BRD = array( 
+					"97421" => "00:06:66:21:89:e9",
+					"97450" => "00:06:66:21:89:01"
+				);
+				
+		$brdFound = $BRD[$cp];
+		
+		if($brdFound != null) {
+			$res = PHDB::find(Thing::collection,array('boardId' => $brdFound),array("temp", "timestamp"));
+			$res2 = PHDB::find(Thing::collection,array('boardId' => $brdFound),array("hum", "timestamp"));
+
+			echo '[ { "key" : "Humidité" , "bar": true, "color": "#ccf", "values" : [ ';
+
+			foreach($res2 as $key => $value) {
+				if($value['hum'] != null) {
+					echo ' [ '.strtotime($value['timestamp']).'000 , '.$value['hum'].'.0 ] ';
+					if (!($value === end($res2))) {
+						echo ' , ';
+					}
+				}
+			}
+
+			echo ']} ,  {"key" : "Temperature" , "color": "#333", "values" : [ ';
+
+			foreach($res as $key => $value) {
+				if($value['temp'] != null) {
+					echo ' [ '.strtotime($value['timestamp']).'000 , '.$value['temp'].'.0 ] ';
+					if (!($value === end($res))) {
+						echo ' , ';
+					}
+				}
+			}
+			echo ' ] } ]';
+
+		}
+		else {
+			echo "error";
+		}
+		
+	   
+	}
+	
+	
+	
+	
+	public function actionGetCoNo2() 
+	{
+	
+		$url = Yii::app()->request->url;
+		$segments = explode('/', $url);
+		$cp = $segments[count($segments)-1];
+		
+		$BRD = array( 
+					"97421" => "00:06:66:21:89:e9",
+					"97450" => "00:06:66:21:89:01"
+				);
+				
+		$brdFound = $BRD[$cp];
+		
+		if($brdFound != null) {
+			$res = PHDB::find(Thing::collection,array('boardId' => $brdFound),array("co", "timestamp"));
+			$res2 = PHDB::find(Thing::collection,array('boardId' => $brdFound),array("no2", "timestamp"));
+
+			echo '[ { "key" : "CO" , "bar": true, "color": "#ccf", "values" : [ ';
+
+			foreach($res as $key => $value) {
+				if($value['co'] != null) {
+					echo ' [ '.strtotime($value['timestamp']).'000 , '.$value['co'].'.0 ] ';
+					if (!($value === end($res))) {
+						echo ' , ';
+					}
+				}
+			}
+
+			echo ']} ,  {"key" : "NO2" , "color": "#333", "values" : [ ';
+
+			foreach($res2 as $key => $value) {
+				if($value['no2'] != null) {
+					echo ' [ '.strtotime($value['timestamp']).'000 , '.$value['no2'].'.0 ] ';
+					if (!($value === end($res2))) {
+						echo ' , ';
+					}
+				}
+			}
+			echo ' ] } ]';
+		}
+		else {
+			echo "error";
+		}
+	   
 	}
 
   public function actionFablab() 
