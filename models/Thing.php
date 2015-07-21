@@ -19,7 +19,7 @@ class Thing {
 	   "no2"=>$param["no2"],
 	   "noise"=>$param["noise"],
 	   "nets"=>$param["nets"],
-	   "timestamp"=>$param["timestamp"],
+	   "timestamp"=>new MongoDate(strtotime($param["timestamp"])),
 
 	   "type" => "smartCitizen",
 	   "boardId" => $param["macId"],

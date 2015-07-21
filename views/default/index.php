@@ -5,6 +5,11 @@ $cs->registerScriptFile(Yii::app()->theme->baseUrl. '/assets//plugins/nvd3/lib/d
 //$cs->registerScriptFile(Yii::app()->theme->baseUrl. '/assets//plugins/nvd3/lib/d3.tip.v0.6.3.js' , CClientScript::POS_END);
 $cs->registerCssFile(Yii::app()->theme->baseUrl. '/assets/plugins/nvd3/nv.d3.min.css');
 $cs->registerScriptFile(Yii::app()->theme->baseUrl. '/assets//plugins/nvd3/nv.d3.min.js' , CClientScript::POS_END);
+/* FT */
+$cs->registerScriptFile('//cdn.jsdelivr.net/d3js/latest/d3.min.js' , CClientScript::POS_END);
+$cs->registerScriptFile('//cdn.jsdelivr.net/underscorejs/latest/underscore-min.js' , CClientScript::POS_END);
+$cs->registerScriptFile('//cdn.jsdelivr.net/taucharts/latest/tauCharts.min.js' , CClientScript::POS_END);
+$cs->registerCssFile('//cdn.jsdelivr.net/taucharts/latest/tauCharts.min.css');
 ?>
 <!-- start: PAGE CONTENT -->
 <div class="row">

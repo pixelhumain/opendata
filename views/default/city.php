@@ -10,6 +10,53 @@ $cs->registerScriptFile(Yii::app()->theme->baseUrl. '/assets//plugins/nvd3/nv.d3
 
 <?php 
 
+
+	$commune = array( '974'=>array(
+									'97400'=> 'ST DENIS',
+									'97410'=> 'ST PIERRE',
+									'97411'=> 'BOIS DE NEFLES ST PAUL',
+									'97412'=> 'BRAS PANON',
+									'97413'=> 'CILAOS',
+									'97414'=> 'ENTRE DEUX',
+									'97416'=> 'LA CHALOUPE',
+									'97417'=> 'LA MONTAGNE',
+									'97418'=> 'LA PLAINE DES CAFRES',
+									'97419'=> 'LA POSSESSION',
+									'97420'=> 'LE PORT',
+									'97421'=> 'LA RIVIERE',
+									'97422'=> 'LA SALINE',
+									'97423'=> 'LE GUILLAUME',
+									'97424'=> 'LE PITON ST LEU',
+									'97425'=> 'LES AVIRONS',
+									'97426'=> 'LES TROIS BASSINS',
+									'97427'=> 'L ETANG SALE',
+									'97429'=> 'PETITE ILE',
+									'97430'=> 'LE TAMPON',
+									'97431'=> 'LA PLAINE DES PALMISTES',
+									'97432'=> 'RAVINE DES CABRIS',
+									'97433'=> 'SALAZIE',
+									'97434'=> 'ST GILLES LES BAINS' ,
+									'97435'=> 'ST GILLES LES HAUTS',
+									'97436'=> 'ST LEU',
+									'97437'=> 'STE ANNE',
+									'97438'=> 'STE MARIE',
+									'97439'=> 'STE ROSE',
+									'97440'=> 'ST ANDRE',
+									'97441'=> 'STE SUZANNE',
+									'97442'=> 'ST PHILIPPE',
+									'97450'=> 'ST LOUIS',
+									'97460'=> 'ST PAUL',
+									'97470'=> 'ST BENOIT',
+									'97480'=> 'ST JOSEPH',
+									'97490'=> 'STE CLOTILDE'
+									)
+								);
+									
+									
+		foreach ($commune['974'] as  $cp => $name) {
+			echo '<a href="/ph/opendata/default/city/cp/'.$cp.'">'.$name.'</a> | ';
+		}
+		
 	// Check CP
 	$url = Yii::app()->request->url;
 	
@@ -18,8 +65,10 @@ $cs->registerScriptFile(Yii::app()->theme->baseUrl. '/assets//plugins/nvd3/nv.d3
 		$cp = $segments[count($segments)-1];
 		
 		$city = array( 
-					"97421",
-					"97450"
+          "97410",
+          "97421",
+					"97450",
+          "97425"
 				);
 				
 		if(in_array($cp, $city)) {
@@ -39,31 +88,53 @@ $cs->registerScriptFile(Yii::app()->theme->baseUrl. '/assets//plugins/nvd3/nv.d3
                 </a>
                 <ul class="dropdown-menu" role="menu">
                   <li role="presentation" class="dropdown-header">
-                    24H
-                  </li>
-                  <li>
-                    <a href="#">
-                      Semaine
+                    <a class="periodSelect" id="period0" href="#">
+                      Dernière heure
                     </a>
                   </li>
                   <li>
-                    <a href="#">
-                      Mois
+                    <a class="periodSelect" id="period1" href="#">
+                      Dernières 24H
                     </a>
                   </li>
                   <li>
-                    <a href="#">
-                      Année
+                    <a class="periodSelect" id="period2" href="#">
+                      Hier
+                    </a>
+                  </li>
+                  <li>
+                    <a class="periodSelect" id="period3" href="#">
+                      7 derniers jours
+                    </a>
+                  </li>
+                  <li>
+                    <a class="periodSelect" id="period4" href="#">
+                      Cette semaine
+                    </a>
+                  </li>
+                  <li>
+                    <a class="periodSelect" id="period5" href="#">
+                      La semaine dernière
+                    </a>
+                  </li>
+                  <li>
+                    <a class="periodSelect" id="period6" href="#">
+                      30 derniers jours
+                    </a>
+                  </li>
+                  <li>
+                    <a class="periodSelect" id="period7" href="#">
+                      Ce mois
+                    </a>
+                  </li>
+                  <li>
+                    <a class="periodSelect" id="period8" href="#">
+                      Le mois dernier
                     </a>
                   </li>
                   <li class="divider"></li>
                 </ul>
               </div>
-          </li>
-          <li>
-            <div class="rate">
-              <i class="fa fa-caret-up text-green"></i><span class="value">15</span><span class="percentage">%</span>
-            </div>
           </li>
           <li class="panel-tools">
             <div class="dropdown">
@@ -135,43 +206,57 @@ $cs->registerScriptFile(Yii::app()->theme->baseUrl. '/assets//plugins/nvd3/nv.d3
             <div class="pull-right">
               <div class="btn-group">
                 <a href="#" data-toggle="dropdown" class="btn btn-green dropdown-toggle">
-                  Tools <span class="caret"></span>
+                  Période <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu" role="menu">
                   <li role="presentation" class="dropdown-header">
-                    Dropdown header
+                    <a class="periodSelect2" id="_period0" href="#">
+          						Dernière heure
+          					</a>
                   </li>
                   <li>
-                    <a href="#">
-                      Action
+                    <a class="periodSelect2" id="_period1" href="#">
+                      Dernières 24H
                     </a>
                   </li>
                   <li>
-                    <a href="#">
-                      Another action
+                    <a class="periodSelect2" id="_period2" href="#">
+                      Hier
                     </a>
                   </li>
                   <li>
-                    <a href="#">
-                      Something else here
+                    <a class="periodSelect2" id="_period3" href="#">
+                      7 derniers jours
+                    </a>
+                  </li>
+                  <li>
+                    <a class="periodSelect2" id="_period4" href="#">
+                      Cette semaine
+                    </a>
+                  </li>
+                  <li>
+                    <a class="periodSelect2" id="_period5" href="#">
+                      La semaine dernière
+                    </a>
+                  </li>
+                  <li>
+                    <a class="periodSelect2" id="_period6" href="#">
+                      30 derniers jours
+                    </a>
+                  </li>
+                  <li>
+                    <a class="periodSelect2" id="_period7" href="#">
+                      Ce mois
+                    </a>
+                  </li>
+                  <li>
+                    <a class="periodSelect2" id="_period8" href="#">
+                      Le mois dernier
                     </a>
                   </li>
                   <li class="divider"></li>
-                  <li role="presentation" class="dropdown-header">
-                    Dropdown header
-                  </li>
-                  <li>
-                    <a href="#">
-                      Separated link
-                    </a>
-                  </li>
                 </ul>
               </div>
-            </div>
-          </li>
-          <li>
-            <div class="rate">
-              <i class="fa fa-caret-up text-green"></i><span class="value">11</span><span class="percentage">%</span>
             </div>
           </li>
           <li class="panel-tools">
@@ -229,90 +314,184 @@ var date = new Date();
 var series1 = [];
 var series2 = [];
 var firstDay, lastDay, fifthDay, tenthDay, fifteenthDay, twentiethDay, twentyfifthDay;
-jQuery(document).ready(function() {
 
 
-d3.json("http://test.pixelhumain.com/ph/opendata/default/gettemp/<?php echo $cp;?>",function(error,data) {
+function updateGraph1(period, chart) {
 
-	
-  nv.addGraph(function() {
-      var chart = nv.models.linePlusBarChart()
-            .margin({top: 30, right: 60, bottom: 50, left: 70})
-            //We can set x data accessor to use index. Reason? So the bars all appear evenly spaced.
-            .x(function(d,i) { return i })
-            .y(function(d,i) {return d[1] })
-            ;
+  d3.json("http://test.pixelhumain.com/ph/opendata/default/gettemp/<?php echo $cp;?>-"+period,function(error,data) {
+
+    
+
+    nv.addGraph(function() {
+
+      
 
       chart.xAxis.tickFormat(function(d) {
-        var dx = data[0].values[d] && data[0].values[d][0] || 0;
-        return d3.time.format('%x')(new Date(dx))
+      var dx = data[0].values[d] && data[0].values[d][0] || 0;
+      return d3.time.format('%c')(new Date(dx))
       });
 
       chart.y1Axis
-          .tickFormat(d3.format(',f'));
+        .tickFormat(d3.format(',f'));
 
       chart.y2Axis
-          .tickFormat(function(d) { return '°C' + d3.format(',f')(d) });
+        .tickFormat(function(d) { return '°C' + d3.format(',f')(d) });
 
       chart.bars.forceY([0]);
-	  
+      
 
       d3.select('#chart svg')
-        .datum(data)
-        .transition()
-        .duration(0)
-        .call(chart);
+      .datum(data)
+      .transition()
+      .duration(0)
+      .call(chart);
 
       nv.utils.windowResize(chart.update);
-	  
+      
 
       return chart;
+    });
+
   });
+}
 
-});
+function updateGraph2(period, chart2) {
 
+	d3.json("http://test.pixelhumain.com/ph/opendata/default/getcono2/<?php echo $cp;?>-"+period,function(error,data) {
 
-d3.json("http://test.pixelhumain.com/ph/opendata/default/getcono2/<?php echo $cp;?>",function(error,data) {
+	  nv.addGraph(function() {
 
+		  chart2.xAxis.tickFormat(function(d) {
+			var dx = data[0].values[d] && data[0].values[d][0] || 0;
+			return d3.time.format('%c')(new Date(dx))
+		  });
+
+		  chart2.y1Axis
+			  .tickFormat(d3.format(',f'));
+
+		  chart2.y2Axis
+			  .tickFormat(function(d) { return '°C' + d3.format(',f')(d) });
+
+		  chart2.bars.forceY([0]);
+		  
+
+		  d3.select('#chart4 svg')
+			.datum(data)
+			.transition()
+			.duration(0)
+			.call(chart2);
+
+		  nv.utils.windowResize(chart2.update);
+		  
+
+		  return chart2;
+	  });
+
+	});
 	
-  nv.addGraph(function() {
-      var chart = nv.models.linePlusBarChart()
-            .margin({top: 30, right: 60, bottom: 50, left: 70})
-            //We can set x data accessor to use index. Reason? So the bars all appear evenly spaced.
-            .x(function(d,i) { return i })
-            .y(function(d,i) {return d[1] })
-            ;
+}
 
-      chart.xAxis.tickFormat(function(d) {
-        var dx = data[0].values[d] && data[0].values[d][0] || 0;
-        return d3.time.format('%x')(new Date(dx))
-      });
 
-      chart.y1Axis
-          .tickFormat(d3.format(',f'));
+jQuery(document).ready(function() {
 
-      chart.y2Axis
-          .tickFormat(function(d) { return '°C' + d3.format(',f')(d) });
+  var chart = nv.models.linePlusBarChart()
+        .margin({top: 30, right: 60, bottom: 50, left: 70})
+        //We can set x data accessor to use index. Reason? So the bars all appear evenly spaced.
+        .x(function(d,i) { return i })
+        .y(function(d,i) {return d[1] })
+        ;
 
-      chart.bars.forceY([0]);
-	  
+  var chart2 = nv.models.linePlusBarChart()
+        .margin({top: 30, right: 60, bottom: 50, left: 70})
+        //We can set x data accessor to use index. Reason? So the bars all appear evenly spaced.
+        .x(function(d,i) { return i })
+        .y(function(d,i) {return d[1] })
+        ;
+        
 
-      d3.select('#chart4 svg')
-        .datum(data)
-        .transition()
-        .duration(0)
-        .call(chart);
+	$('.periodSelect').click(function(){ 
+		console.log(this.id); 
+		var period = 0;
+		
+		switch(this.id) {
+		case 'period0' :
+			period = "0";
+			break;
+		case 'period1' :
+			period = "1";
+			break;
+		case 'period2' :
+			period = "2";
+			break;
+    case 'period3' :
+      period = "3";
+      break;
+    case 'period4' :
+      period = "4";
+      break;
+    case 'period5' :
+      period = "5";
+      break;
+    case 'period6' :
+      period = "6";
+      break;
+    case 'period7' :
+      period = "7";
+      break;
+    case 'period8' :
+      period = "8";
+      break;
+		}
+		
+    updateGraph1(period, chart);
+		
+		return false; 
+		
+	});
 
-      nv.utils.windowResize(chart.update);
-	  
 
-      return chart;
+  $('.periodSelect2').click(function(){ 
+    console.log(this.id); 
+    var period = 0;
+    
+    switch(this.id) {
+    case '_period0' :
+      period = "0";
+      break;
+    case '_period1' :
+      period = "1";
+      break;
+    case '_period2' :
+      period = "2";
+      break;
+    case '_period3' :
+      period = "3";
+      break;
+    case '_period4' :
+      period = "4";
+      break;
+    case '_period5' :
+      period = "5";
+      break;
+    case '_period6' :
+      period = "6";
+      break;
+    case '_period7' :
+      period = "7";
+      break;
+    case '_period8' :
+      period = "8";
+      break;
+    }
+    
+    updateGraph2(period, chart2);
+    
+    return false; 
+    
   });
-
-});
-
-
-
+	
+  updateGraph1(1, chart);
+  updateGraph2(1, chart2);
 
 });
 
@@ -326,7 +505,11 @@ d3.json("http://test.pixelhumain.com/ph/opendata/default/getcono2/<?php echo $cp
 	}
 	else {
 		// No CP
+		echo "<h2>Aucune donnée à afficher pour cette ville. Merci d'essayer un autre lien.</h2>";
+		
 	}
+	
+	
 	
 ?>
 

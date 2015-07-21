@@ -5,6 +5,15 @@
  */
 class OpenDataController extends Controller
 {
+
+  /* */
+  public $BRD = array( 
+            "97410" => "00:06:66:21:8c:40",
+            "97421" => "00:06:66:21:89:e9",
+            "97450" => "00:06:66:21:89:01",
+            "97425" => "00:06:66:21:8d:f5"
+          );
+
   public $version = "V.0.01";
   
   public $title = "Open Data ";
@@ -33,10 +42,10 @@ class OpenDataController extends Controller
 
   public $notifications = array();
   public $sidebar1 = array(
-    array('label' => "OPEN ", "key"=>"open","iconClass"=>"fa fa-share-alt","href"=> "/opendatameteo/default/open" ),
-    array('label' => "DATA ", "key"=>"open","iconClass"=>"fa fa-database","href"=> "/opendatameteo/default/data" ),
-    array('label' => "SMART ", "key"=>"open","iconClass"=>"fa fa-lightbulb-o","href"=> "/opendatameteo/default/smart" ),
-    array('label' => "CITY ", "key"=>"open","iconClass"=>"fa fa-building","href"=> "/opendatameteo/default/city" ),
+    array('label' => "OPEN ", "key"=>"open","iconClass"=>"fa fa-share-alt","href"=> "/ph/opendata/default/open" ),
+    array('label' => "DATA ", "key"=>"open","iconClass"=>"fa fa-database","href"=> "/ph/opendata/default/data" ),
+    array('label' => "SMART ", "key"=>"open","iconClass"=>"fa fa-lightbulb-o","href"=> "/ph/opendata/default/smart" ),
+    array('label' => "CITY ", "key"=>"open","iconClass"=>"fa fa-building","href"=> "/ph/opendata/default/city" ),
     array('label' => "Give us a Smile ", "key"=>"smile", "class"=>"new-note", "iconClass"=>"fa fa-smile-o" ),
     
     );
@@ -67,6 +76,7 @@ public $pages = array(
     "get"=>array("href"=>"/ph/opendatameteo/default/get"),
     "gettemp"=>array("href"=>"/ph/opendatameteo/default/gettemp"),
     "getcono2"=>array("href"=>"/ph/opendatameteo/default/getcono2"),
+    "getlastvalues"=>array("href"=>"/ph/opendatameteo/default/getlastvalues"),
     "push"=>array("href"=>"/ph/opendatameteo/default/push")
   ),
   
